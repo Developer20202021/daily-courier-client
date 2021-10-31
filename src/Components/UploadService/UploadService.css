@@ -1,0 +1,219 @@
+
+
+
+@media only screen and (min-width:788px) {
+   
+.addevent-form-conatiner{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  
+}
+
+.event-part-1, .event-part-2{
+    display: flex;
+    flex-direction: column;
+   
+    /* gap: 40px; */
+    margin-right: 160px;
+
+}
+.register-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.form-container-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+}
+
+.event-part-1 input, .event-part-2 input{
+
+    border: 1px solid rgb(214, 204, 204);
+    width: 190px;
+    height: 30px;
+    outline: none;
+
+}
+.event-part-1 div, .event-part-2 div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+}
+
+.event-part-1 div label, .event-part-2 div label{
+font-size: 14px;
+font-weight: 700;
+color: gray;
+}
+
+.submitbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    margin-top: 20px;
+  
+
+
+}
+.submitbutton button{
+    background-color: #339AF0;
+    width: 200px;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.event-part-1 textarea{
+
+    border: 1px solid rgb(214, 204, 204);
+    outline: none;
+}
+.volunteer-registerlist{
+    margin-top: 200px;
+} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width:788px) {
+    
+.addevent-form-conatiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  
+}
+
+.event-part-1, .event-part-2{
+    display: flex;
+    flex-direction: column;
+   
+    /* gap: 40px; */
+    /* margin-right: 160px; */
+
+}
+.register-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 130px;
+}
+
+.form-container-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+}
+
+.description-textarea textarea{
+    border: 1px solid rgb(214, 204, 204);
+    width: 290px;
+    height: 150px;
+    outline: none;
+}
+
+
+
+
+.event-part-1 input, .event-part-2 input{
+
+    border: 1px solid rgb(214, 204, 204);
+    width: 290px;
+    height: 50px;
+    outline: none;
+
+}
+.event-part-1 div, .event-part-2 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: 30px; */
+
+}
+
+.event-part-1 div label, .event-part-2 div label{
+font-size: 14px;
+font-weight: 700;
+color: gray;
+}
+
+.submitbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 50px;
+    margin-top: 20px; */
+  
+
+
+}
+.submitbutton button{
+    background-color: #339AF0;
+    width: 200px;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+.event-part-1 textarea{
+
+    border: 1px solid rgb(214, 204, 204);
+    outline: none;
+}
+.volunteer-registerlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

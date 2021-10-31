@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import './PlaceOrder.css';
+import useAuthContext from '../AuthContext/UseAuthContext';
 
 
 
@@ -9,6 +10,8 @@ import './PlaceOrder.css';
 
 const PlaceOrder = () => {
     const [service, setService] = useState([]);
+    const history = useHistory();
+    const {user}= useAuthContext();
   
 
     const {serviceName, price, description} = service;
@@ -24,7 +27,7 @@ const PlaceOrder = () => {
     const {id} = useParams();
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/services/single-service/${id}`)
+        fetch(`https://scary-grave-51351.herokuapp.com/services/single-service/${id}`)
         .then(res=>res.json())
         .then(data=>setService(data[0]))
         .catch(err=>{
@@ -123,7 +126,7 @@ const PlaceOrder = () => {
           zipCode:zipCode.current.value,
       }
 
-      fetch('http://localhost:5000/client/delivery/delivery-info',{
+      fetch('https://scary-grave-51351.herokuapp.com/client/delivery/delivery-info',{
           method:"POST",
           headers:{
               "Content-Type":"application/json"
@@ -134,6 +137,7 @@ const PlaceOrder = () => {
       .then(res=>{
           if (res.status===200) {
               setmsg(1);
+              history.push('/your-orders')
           }
           if (res.status===400) {
               setmsg(2);
@@ -205,7 +209,7 @@ const PlaceOrder = () => {
 
     <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Email</Form.Label>
-      <Form.Control ref={email} type="email" placeholder="Enter Your Email" />
+      <Form.Control ref={email} type="email" placeholder="Enter Your Email" value={user?.email} readOnly/>
     </Form.Group>
   </Row>
   <Row className="mb-3">

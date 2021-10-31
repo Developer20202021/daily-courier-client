@@ -1,0 +1,34 @@
+
+
+
+@media screen and (min-width:788px) {
+    .login-form-container input[type='email']{
+            width: 400px;
+    }
+    .login-submit-btn button{
+        width: 400px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:788px) {
+    .login-form-container input[type='email']{
+        width: 100vw;
+    }
+    .login-submit-btn button{
+        width: 100vw;
+    }
+}

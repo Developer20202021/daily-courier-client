@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
+import { Accordion } from 'react-bootstrap';
 import SingleService from './singleService/SingleService';
+import useAuthContext from '../AuthContext/UseAuthContext';
 
 
 
@@ -12,9 +14,39 @@ const Home = () => {
 
     const images = ['https://i.ibb.co/pfLk34d/delivery-truck-1.jpg','https://i.ibb.co/BPjQwGK/delivery-slide-2.jpg','https://i.ibb.co/5G61sF5/slide-3.jpg']
 
+    const {authStateChange, user} = useAuthContext();
+
 
     const [src, setSrc] = useState(images[0]);
     const [services, setServices]= useState([]);
+
+
+      useEffect(()=>{
+
+        authStateChange()
+
+
+
+
+
+      },[user])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     let i = 0;
     useEffect(()=>{
@@ -48,7 +80,7 @@ const Home = () => {
     useEffect(()=>{
 
 
-        fetch('http://localhost:5000/services/all-services')
+        fetch('https://scary-grave-51351.herokuapp.com/services/all-services')
         .then(res=>res.json())
         .then(data=>setServices(data.allServices))
         .catch(err=>{
@@ -138,6 +170,105 @@ const Home = () => {
 
 
 
+                </div>
+
+
+
+
+                    <div className="accordion-part">
+                    <h2 className='our-contact-title-part'><span>\\</span> Our History<span>\\</span></h2>
+                  
+
+                <div className="Accordion-container">
+                
+                    <div className="Accordion-box">
+
+                    <Accordion>
+  <Accordion.Item eventKey="0">
+    <Accordion.Header style={{
+        width:'300px'
+    }}>GROUND CARGO</Accordion.Header>
+    <Accordion.Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="1">
+    <Accordion.Header>Regular Service</Accordion.Header>
+    <Accordion.Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="2">
+    <Accordion.Header>Next Day</Accordion.Header>
+    <Accordion.Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="3">
+    <Accordion.Header>Week Service</Accordion.Header>
+    <Accordion.Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="4">
+    <Accordion.Header>SEA FREIGHT</Accordion.Header>
+    <Accordion.Body>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </Accordion.Body>
+  </Accordion.Item>
+</Accordion>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                    {/* <div className="accordion-image-container">
+                        <img src="https://i.ibb.co/xLqzk2J/acordion.jpg" alt="" />
+                    </div> */}
+
+
+
+
+                </div>
+              
                 </div>
 
                

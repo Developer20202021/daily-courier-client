@@ -1,31 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import ClientOrder from './ClientOrder/ClientOrder';
-import './ManageAllOrder.css';
+import './YourOrder.css';
+import YourOrderRow from './YourOrderRow/YourOrderRow';
+import useAuthContext from '../AuthContext/UseAuthContext';
 
 
 
 
 
-const ManageAllOrder = () => {
+const YourOrder = () => {
 
-    const [clientInfo, setClientInfo] = useState([]);
-    console.log(clientInfo);
+        const {user} = useAuthContext();
 
-    const [msg, setMsg] = useState()
+        const [yourOrderInfo, setYourOrderInfo] = useState([]);
+
+        const [msg, setMsg] = useState()
+
+
 
 
     useEffect(()=>{
 
-        fetch('https://scary-grave-51351.herokuapp.com/client/delivery/all-delivery-info')
+        fetch(`https://scary-grave-51351.herokuapp.com/client/delivery/single-client-order?email=${user?.email}`)
         .then(res=>res.json())
-        .then(data=>setClientInfo(data))
+        .then(data=>setYourOrderInfo(data))
         .catch(err=>{
             console.log(err);
         })
 
+
+
+
+
+
     },[msg])
-
-
 
 
 
@@ -63,19 +70,9 @@ const ManageAllOrder = () => {
     }
 
 
-    const approveOrder = (id)=>{
-        fetch(`https://scary-grave-51351.herokuapp.com/client/delivery/delevery-info-approve/${id}`,{
-            method:"PUT"
-        })
-        .then(res=>res.json())
-        .then(data=>setMsg(data))
-        .catch(err=>{
-            console.log(err);
-        })
 
 
 
-    }
 
 
 
@@ -96,9 +93,9 @@ const ManageAllOrder = () => {
 
 
 
-                <div className="order-list-title">
+                <div className="your-order-list-title">
                     <span className='order-list-icon'><i class="fas fa-border-all"></i> </span> 
-                    <span className='order-list'>Order List</span>
+                    <span className='order-list'>Your Order List</span>
                 </div>
             </div>
 
@@ -113,19 +110,19 @@ const ManageAllOrder = () => {
                     <table className='manage-order-table'>
 
                         <thead>
-                            <th> <span><i class="fas fa-user-tie"></i></span> <span>Name</span> </th>
+                         
                             <th><span><i class="fas fa-cart-plus"></i></span> <span>Products</span> </th>
                             <th><span><i class="fas fa-paperclip"></i></span> <span>Order Status</span> </th>
                             <th><span><i class="fas fa-at"></i></span> <span>Email</span> </th>
-                            <th className='phone-number-td'><span><i class="fas fa-phone-alt"></i></span> <span>Phone Number</span> </th>
+                            <th><span><i class="fas fa-phone-alt"></i></span> <span>Phone Number</span> </th>
                             <th><span><i class="fas fa-map-marker-alt"></i></span> <span>Delivery Address</span> </th>
-                            <th><span className='cancel'><i class="fas fa-minus-circle"></i></span> <span >Action</span> </th>
-                            <th><span className='cancel'><i class="fas fa-trash-alt"></i></span> <span >Delete</span> </th>
+                            <th><span className='cancel'><i class="fas fa-trash"></i></span> <span >Action</span> </th>
+                            
                         </thead>
 
                         <tbody>
 
-                            {clientInfo.map(client=> <ClientOrder approveEvent={approveOrder} deleteEvent={deleteOrder} cancelEvent={cancelOrder} key={client._id} value={client}> </ClientOrder> )}
+                            {yourOrderInfo.length>0?yourOrderInfo.map(client=> <YourOrderRow cancelEvent={ cancelOrder} deleteEvent={deleteOrder} key={client._id} value={client}> </YourOrderRow> ):null}
 
 
 
@@ -184,4 +181,4 @@ const ManageAllOrder = () => {
     );
 };
 
-export default ManageAllOrder;
+export default YourOrder;

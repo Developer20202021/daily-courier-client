@@ -1,0 +1,42 @@
+
+@media screen and (min-width:788px) {
+    .your-order-list-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: white;
+        font-size: 20px;
+        font-weight: 600;
+        width: 250px;
+        height: 50px;
+        padding-left: 15px;
+        border-radius: 10px;
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        padding-top: 10px;
+    }
+}
+
+
+
+@media screen and (max-width:788px) {
+    .your-order-list-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: white;
+        font-size: 20px;
+        font-weight: 600;
+        width: 250px;
+        height: 50px;
+        padding-left: 15px;
+        border-radius: 10px;
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        padding-top: 10px;
+    }
+}
