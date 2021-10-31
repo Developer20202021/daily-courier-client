@@ -125,7 +125,7 @@ const ManageAllOrder = () => {
 
                         <tbody>
 
-                            {clientInfo.map(client=> <ClientOrder approveEvent={approveOrder} deleteEvent={deleteOrder} cancelEvent={cancelOrder} key={client._id} value={client}> </ClientOrder> )}
+                            {clientInfo.length>0?clientInfo.map(client=> <ClientOrder approveEvent={approveOrder} deleteEvent={deleteOrder} cancelEvent={cancelOrder} key={client._id} value={client}> </ClientOrder> ):null}
 
 
 
